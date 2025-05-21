@@ -16,3 +16,4 @@ export async function DELETE(request, { params }) {
       { status: 500 }
     );
   }
+}
