@@ -2,6 +2,7 @@
 
 import React from "react";
 import Button from "../Buttons/Buttons";
+import Link from 'next/link'
 import Image from "next/image";
 const Footer = () => {
   return (
@@ -10,20 +11,21 @@ const Footer = () => {
         <div className="text-center md:text-8xl text-6xl font-bold">
           <p>Begin Nu!</p>
         </div>
+        <Link href="/Signup">
         <Button
           className="mt-9"
           variant="learnMore"
-          onClick={() => alert("TEST TEST")}
+          
         >
-          Launch App &rarr;
+          Word lid! &rarr;
         </Button>
-
+</Link>
         <hr className="w-full border-t-2 border-white mt-12 mb-12" />
         <div className="text-center">
           <Image
             src="/NoBG_White.png"
-            width={170}
-            height={120}
+            width={220}
+            height={160}
             alt="Picture of the author"
           />
         </div>

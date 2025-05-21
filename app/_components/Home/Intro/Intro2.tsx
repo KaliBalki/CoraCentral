@@ -36,7 +36,7 @@ const Intro2 = () => {
       >
         <div className="w-full h-full rounded-3xl bg-black">
           <Image
-            src="/HomeBg.png"
+            src="/3D_def_10_Ali.jpg"
             alt="Competitive Experience"
             layout="fill"
             objectFit="cover"

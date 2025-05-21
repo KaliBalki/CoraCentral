@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Button from "../../Overall/Buttons/Buttons";
 import Para from "./Texts/Para";
+import Link from 'next/link'
 import Title from "./Texts/Title";
 const HeroTitle = () => {
   return (
@@ -14,15 +15,19 @@ const HeroTitle = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1.3, ease: "easeOut", delay: 2.4 }}
       >
+                <Link href="/Signup">
         <Button
           variant="joinUs"
-          onClick={() => alert("TEST TEST")}
+         
         >
            Word lid!
         </Button>
-        <Button variant="learnMore" onClick={() => alert("TEST TEST")}>
-         App downloaden &rarr;
+        </Link>
+        <Link href="/Signup">
+        <Button variant="learnMore">
+         Spelers &rarr;
         </Button>
+        </Link>
       </motion.div>
     </div>
   );
