@@ -101,7 +101,7 @@ interface Customer {
   admin: number;
 }
 
-export const CustomerTable: React.FC = () => {
+ const CustomerTable: React.FC = () => {
   const [customers, setCustomers] = useState<Customer[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -204,7 +204,7 @@ interface Player {
   teamName: string | null;
 }
 
-export const PlayersTable: React.FC = () => {
+ const PlayersTable: React.FC = () => {
   const [players, setPlayers] = useState<Player[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -287,7 +287,7 @@ interface Ticket {
   veldNaam: string | null;
 }
 
-export const TicketsTable: React.FC = () => {
+ const TicketsTable: React.FC = () => {
   const [tickets, setTickets] = useState<Ticket[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -367,7 +367,7 @@ interface Veld {
   fieldName: string;
 }
 
-export const VeldenTable: React.FC = () => {
+ const VeldenTable: React.FC = () => {
   const [velden, setVelden] = useState<Veld[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
