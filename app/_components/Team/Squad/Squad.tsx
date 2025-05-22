@@ -11,19 +11,19 @@ const Squad = () => {
       transition={{ duration: 0.8 }} // Duration of the transition
     >
       <div className="flex flex-col md:justify-center px-4 pt-10 w-full md:!px-40">
-        <p className="text-white text-xl font-semibold mb-3">GOALKEEPER</p>
+        <p className="text-white text-xl font-semibold mb-3">KEEPER</p>
         <CardGridPlayer />
       </div>
       <div className="flex flex-col md:justify-center px-4 pt-10 w-full md:!px-40">
-        <p className="text-white text-xl font-semibold mb-3">DEFENDER</p>
+        <p className="text-white text-xl font-semibold mb-3">VERDEDIGER</p>
         <CardGridPlayer />
       </div>
       <div className="flex flex-col md:justify-center px-4 pt-10 w-full md:!px-40">
-        <p className="text-white text-xl font-semibold mb-3">MIDDLEFIELDER</p>
+        <p className="text-white text-xl font-semibold mb-3">MIDDENVELDER</p>
         <CardGridPlayer />
       </div>
       <div className="flex flex-col md:justify-center px-4 pt-10 w-full md:!px-40 mb-32">
-        <p className="text-white text-xl font-semibold mb-3">STRIKER</p>
+        <p className="text-white text-xl font-semibold mb-3">AANVALLER</p>
         <CardGridPlayer />
       </div>
     </motion.div>

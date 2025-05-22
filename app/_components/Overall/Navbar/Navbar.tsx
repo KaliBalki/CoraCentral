@@ -1,3 +1,4 @@
+// Vervang je hele Navbar bestand met dit:
 "use client";
 import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
@@ -10,7 +11,6 @@ import Button from "../Buttons/Buttons";
 
 const Dropdown: React.FC = () => {
   const [isAdmin, setIsAdmin] = useState(false);
-
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -113,6 +113,7 @@ const Dropdown: React.FC = () => {
     </div>
   );
 };
+
 const Navbar = () => {
   const [openMobileNav, setOpenMobileNav] = useState<boolean>(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -218,6 +219,11 @@ const Navbar = () => {
                 Spelers
               </span>
             </Link>
+            <Link href="/About" className="group relative">
+              <span className="text-white group-hover:text-transparent bg-gradient-to-r from-green-700 via-green-600 to-green-500 bg-clip-text transition duration-300">
+                Over Ons
+              </span>
+            </Link>
             {isLoggedIn ? (
               <motion.li
                 variants={liVariant}
@@ -270,116 +276,40 @@ const Navbar = () => {
             className="!text-white fixed inset-0 w-screen h-screen overflow-y-auto no-scrollbar pb-[100px] bg-background z-[998] flex flex-col justify-between items-center"
           >
             <ul className="flex flex-col w-full gap-10 px-5 mt-[130px] relative z-30">
-              <motion.li
-                onClick={handleClose}
-                variants={liVariant}
-                transition={{
-                  duration: 0.3,
-                  delay: openMobileNav ? 0.3 : 0.3,
-                  ease: customease,
-                }}
-                className="flex items-center w-full flex-col gap-10"
-              >
-                <Link
-                  className="nav-item-mobile hover:text-foreground/80 duration-100 text-[42px] xs:text-[50px] sm:text-[60px] w-full text-left"
-                  href="/"
+              {[
+                ["1. Startpagina", "/"],
+                ["2. Clubs", "/Teams"],
+                ["3. Wedstrijden", "/Fixtures"],
+                ["4. Spelers", "/Players"],
+                ["5. Over Ons", "/About"],
+                ["6. Inloggen", "/Login"],
+              ].map(([label, link], index) => (
+                <motion.li
+                  key={link}
+                  onClick={handleClose}
+                  variants={liVariant}
+                  transition={{
+                    duration: 0.3,
+                    delay: openMobileNav ? index * 0.1 : 0,
+                    ease: customease,
+                  }}
+                  className="flex items-center w-full flex-col gap-10"
                 >
-                  <motion.span className="pl-5">1. Startpagina</motion.span>
-                </Link>
-                <motion.hr
-                  variants={hrVariant}
-                  transition={{ duration: 0.3, ease: customease }}
-                  className="bg-muted h-[2px] w-full origin-bottom-left"
-                />
-              </motion.li>
-
-              <motion.li
-                onClick={handleClose}
-                variants={liVariant}
-                transition={{
-                  duration: 0.3,
-                  delay: openMobileNav ? 0.2 : 0.4,
-                  ease: customease,
-                }}
-                className="flex items-center w-full flex-col gap-10"
-              >
-                <Link
-                  className="nav-item-mobile hover:text-foreground/80 duration-100 text-[42px] xs:text-[50px] sm:text-[60px] w-full text-left"
-                  href="/Teams"
-                >
-                  <motion.span className="pl-5">2. Clubs</motion.span>
-                </Link>
-                <motion.hr
-                  variants={hrVariant}
-                  transition={{ duration: 0.3, ease: customease }}
-                  className="bg-muted h-[2px] w-full origin-bottom-left"
-                />
-              </motion.li>
-
-              <motion.li
-                onClick={handleClose}
-                variants={liVariant}
-                transition={{
-                  duration: 0.3,
-                  delay: openMobileNav ? 0.1 : 0.5,
-                  ease: customease,
-                }}
-                className="flex items-center w-full flex-col gap-10"
-              >
-                <Link
-                  className="nav-item-mobile hover:text-foreground/80 duration-100 text-[42px] xs:text-[50px] sm:text-[60px] w-full text-left"
-                  href="/Fixtures"
-                >
-                  <motion.span className="pl-5">3. Wedstrijden</motion.span>
-                </Link>
-                <motion.hr
-                  variants={hrVariant}
-                  transition={{ duration: 0.3, ease: customease }}
-                  className="bg-muted h-[2px] w-full origin-bottom-left"
-                />
-              </motion.li>
-
-              <motion.li
-                onClick={handleClose}
-                variants={liVariant}
-                transition={{
-                  duration: 0.3,
-                  delay: openMobileNav ? 0 : 0.6,
-                  ease: customease,
-                }}
-                className="flex items-center w-full flex-col gap-10"
-              >
-                <Link
-                  className="nav-item-mobile hover:text-foreground/80 duration-100 text-[42px] xs:text-[50px] sm:text-[60px] w-full text-left"
-                  href="/Players"
-                >
-                  <motion.span className="pl-5">4. Spelers</motion.span>
-                </Link>
-                <motion.hr
-                  variants={hrVariant}
-                  transition={{ duration: 0.3, ease: customease }}
-                  className="bg-muted h-[2px] w-full origin-bottom-left"
-                />
-              </motion.li>
-              <motion.li
-                onClick={handleClose}
-                variants={liVariant}
-                transition={{
-                  duration: 0.3,
-                  delay: openMobileNav ? 0 : 0.6,
-                  ease: customease,
-                }}
-                className="flex items-center w-full flex-col gap-10"
-              >
-                <Link
-                  className="nav-item-mobile  hover:text-foreground/80 duration-100 text-[42px] xs:text-[50px] sm:text-[60px] w-full text-left font-bold"
-                  href="/Login"
-                >
-                  <motion.span className="pl-5 text-transparent bg-clip-text bg-gradient-to-r from-[#6bff6b] to-[#324332]">
-                    5. Inloggen
-                  </motion.span>
-                </Link>
-              </motion.li>
+                  <Link
+                    className={`nav-item-mobile hover:text-foreground/80 duration-100 text-[42px] xs:text-[50px] sm:text-[60px] w-full text-left ${
+                      label.includes("Inloggen") ? "font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6bff6b] to-[#324332]" : ""
+                    }`}
+                    href={link}
+                  >
+                    <motion.span className="pl-5">{label}</motion.span>
+                  </Link>
+                  <motion.hr
+                    variants={hrVariant}
+                    transition={{ duration: 0.3, ease: customease }}
+                    className="bg-muted h-[2px] w-full origin-bottom-left"
+                  />
+                </motion.li>
+              ))}
             </ul>
           </motion.nav>
         )}

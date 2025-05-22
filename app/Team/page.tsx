@@ -35,7 +35,7 @@ const Home: React.FC = () => {
             transition={{ duration: 0.2 }}
             className="text-white text-7xl flex justify-center pt-32 font-bold"
           >
-            Fixtures
+            Wedstrijden
           </motion.div>
         )}
         {activeTab === "stats" && (
