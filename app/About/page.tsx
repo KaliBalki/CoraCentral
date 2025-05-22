@@ -18,7 +18,7 @@ const About: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#101010] text-white px-6 md:px-16 py-20 space-y-24">
       <motion.h1
-        className="text-5xl md:text-7xl font-extrabold text-center text-[#6bfd6b] drop-shadow-lg"
+        className="text-4.5xl md:text-7xl font-extrabold text-center text-[#6bfd6b] drop-shadow-lg"
         initial="hidden"
         animate="visible"
         variants={fadeInUp}
