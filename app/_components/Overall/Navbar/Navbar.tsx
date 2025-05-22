@@ -269,44 +269,49 @@ const Navbar = () => {
       <AnimatePresence mode="wait">
         {openMobileNav && (
           <motion.nav
-  variants={navVariant}
-  initial="initial"
-  animate="animate"
-  exit="exit"
-  className="!text-white fixed inset-0 w-screen h-screen overflow-y-auto no-scrollbar pb-[100px] bg-background z-[998] flex flex-col justify-between items-center"
->
-  <ul className="flex flex-row flex-wrap w-full gap-4 px-5 mt-[130px] relative z-30">
-    {[
-      ["1. Startpagina", "/"],
-      ["2. Clubs", "/Teams"],
-      ["3. Wedstrijden", "/Fixtures"],
-      ["4. Spelers", "/Players"],
-      ["5. Over Ons", "/About"],
-      ["6. Inloggen", "/Login"],
-    ].map(([label, link], index) => (
-      <motion.li
-        key={link}
-        onClick={handleClose}
-        variants={liVariant}
-        transition={{
-          duration: 0.3,
-          delay: openMobileNav ? index * 0.1 : 0,
-          ease: customease,
-        }}
-        className="flex items-center flex-col gap-10"
-      >
-        <Link
-          className={`nav-item-mobile hover:text-foreground/80 duration-100 text-[20px] w-fit text-left ${
-            label.includes("Inloggen") ? "font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6bff6b] to-[#324332]" : ""
-          }`}
-          href={link}
-        >
-          <motion.span className="pl-5">{label}</motion.span>
-        </Link>
-      </motion.li>
-    ))}
-  </ul>
-</motion.nav>
+            variants={navVariant}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="!text-white fixed inset-0 w-screen h-screen overflow-y-auto no-scrollbar pb-[100px] bg-background z-[998] flex flex-col justify-between items-center"
+          >
+            <ul className="flex flex-col w-full gap-10 px-5 mt-[130px] relative z-30">
+              {[
+                ["1. Startpagina", "/"],
+                ["2. Clubs", "/Teams"],
+                ["3. Wedstrijden", "/Fixtures"],
+                ["4. Spelers", "/Players"],
+                ["5. Over Ons", "/About"],
+                ["6. Inloggen", "/Login"],
+              ].map(([label, link], index) => (
+                <motion.li
+                  key={link}
+                  onClick={handleClose}
+                  variants={liVariant}
+                  transition={{
+                    duration: 0.3,
+                    delay: openMobileNav ? index * 0.1 : 0,
+                    ease: customease,
+                  }}
+                  className="flex items-center w-full flex-col gap-10"
+                >
+                  <Link
+                    className={`nav-item-mobile hover:text-foreground/80 duration-100 text-[42px] xs:text-[50px] sm:text-[60px] w-full text-left ${
+                      label.includes("Inloggen") ? "font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6bff6b] to-[#324332]" : ""
+                    }`}
+                    href={link}
+                  >
+                    <motion.span className="pl-5">{label}</motion.span>
+                  </Link>
+                  <motion.hr
+                    variants={hrVariant}
+                    transition={{ duration: 0.3, ease: customease }}
+                    className="bg-muted h-[2px] w-full origin-bottom-left"
+                  />
+                </motion.li>
+              ))}
+            </ul>
+          </motion.nav>
         )}
       </AnimatePresence>
     </>
